@@ -1,0 +1,104 @@
+html {
+    scroll-behavior: smooth;
+}
+.container-navbar {
+    position: fixed;
+    width: 100%;
+    z-index: +1;
+    font-size: 14px;
+    background-color: white;
+}
+/*Navbar*/
+.navbar-left{
+    float: left;
+}
+.navbar-right{
+    float: right;
+}
+.navbar-left ul, .navbar-right ul{
+    margin: 0;
+    padding: 15px 0;
+    overflow: hidden;
+}
+.navbar-left li, .navbar-right li{
+    float: left;
+    padding: 0 15px;
+    list-style-type: none;
+}
+.navbar-left a,.navbar-right a {
+    text-decoration: none;
+    color: orangered;
+    padding-top: 10px;
+}
+.navbar-left a:hover, .navbar-right a:hover {
+    color: green;
+}
+#logo {
+    color: cornflowerblue;
+    text-align: center;
+    padding: 10px;
+}
+/*Hide in PC view*/
+#icon {
+    display: none;
+    color:darkred;
+    cursor: pointer;
+}
+/*Overlay*/
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.7);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+.overlay a:hover, .overlay a:focus {
+    color: burlywood;
+}
+.overlay .closeBtn {
+    position: absolute;
+    top: 10px;
+    right: 45px;
+    font-size: 60px;
+}
+@media screen and (max-width: 700px) {
+    .navbar {display: none}
+    .container-navbar {
+        width: 100%;
+        background: none;
+    }
+    #icon {
+        float: right;
+        display: block;
+        padding: 10px 10px 9px 0;
+    }
+    .overlay a {
+        font-size: 20px;
+        padding: 20px 0;
+    }
+    .overlay .closeBtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}

@@ -1,0 +1,82 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: white;
+}
+p {
+  font-size: 14px;
+  color: darkslategrey;
+}
+h1, h2, h3, h4 {
+
+}
+input[type=text],[type=email],[type=password],textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 10px 0;
+  background-color: antiquewhite;
+}
+.btn-button:disabled {
+  cursor: not-allowed;
+}
+.btn-button {
+  padding: 10px 30px;
+  background: none;
+  color: chocolate;
+  border: 1px solid chocolate;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+.btn-button:hover {
+  background-color: cornflowerblue;
+  color: white;
+}
+.btn-button i {
+  vertical-align: middle;
+  padding: 0 20px 0 0;
+}
+.fab:hover {
+  cursor: pointer;
+}
+.fa-github-square {
+  color: black;
+}
+.fa-twitter-square {
+  color: darkslateblue;
+}
+.fa-linkedin {
+  color: blue;
+}
+.fa-instagram-square {
+  color: chocolate;
+}
+.alert {
+  display: inline-block;
+  width: 500px;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: red;
+  color: white;
+  font-size: 14px;
+  border-radius: 10px;
+}
+.alert-closeBtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.alert-closeBtn:hover {
+  color: black;
+}

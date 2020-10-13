@@ -1,0 +1,63 @@
+.container-login {
+    margin: 0;
+    max-height: 100%;
+    width: 100%;
+    color: darkslategrey;
+}
+.container-top {
+    width: 100%;
+    font-size: 10px;
+    padding: 10px;
+}
+.container-top a, .container-top i {
+    text-decoration: none;
+    color: cornflowerblue;
+    padding: 8px;
+}
+.login-box {
+    position: absolute;
+    margin-top: 10%;
+    width: 100%;
+    text-align: center;
+}
+.login-header {
+    font-size: 25px;
+    color: cornflowerblue;
+    padding: 15px 0;
+    margin-bottom: 20px;
+}
+.login-options-left ,.login-options-right, .email-form {
+    display: inline-block;
+    padding: 20px 0;
+    text-align: left;
+    width: 300px;
+    color: white;
+    margin: 15px;
+}
+.login-options-right i, .login-options-left i {
+    padding: 15px;
+    border-right: 1px solid white;
+}
+.login-options-right span, .login-options-left span {
+    padding-left: 20px;
+}
+.option-google, .option-twitter, .option-facebook, .option-email {
+    margin: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.option-google:hover, .option-twitter:hover, .option-facebook:hover, .option-email:hover{
+    color: green;
+}
+.option-google {
+    background-color: red;
+}
+.option-twitter {
+    background-color: lightskyblue;
+}
+.option-facebook {
+    background-color: cornflowerblue;
+}
+.option-email {
+    background-color: darkorange;
+}
