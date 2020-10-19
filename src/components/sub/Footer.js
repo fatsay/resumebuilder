@@ -1,8 +1,7 @@
-import React, {Component} from 'react';
+import React from 'react';
 import '../../css/common/footer.css';
 
-class Footer extends Component {
-    render() {
+const Footer =()=> {
         return (
             <div className={'container-footer'}>
                 <ul>
@@ -29,7 +28,6 @@ class Footer extends Component {
                 </ul>
             </div>
         );
-    }
 }
 
 export default Footer;

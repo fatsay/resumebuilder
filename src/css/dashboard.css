@@ -1,0 +1,19 @@
+.container-dashboard {
+    margin: auto;
+    max-width: 1200px;
+}
+.navbar-dashboard {
+    font-size: 13px;
+    height:50px ;
+    border-bottom: 1px solid gray;
+}
+.navbar-dashboard a{
+    float: left;
+    display: block;
+    padding: 10px 0;
+    margin: 0 20px 0 0;
+    text-decoration: none;
+}
+.navbar-dashboard a:hover {
+    color: orangered;
+}
