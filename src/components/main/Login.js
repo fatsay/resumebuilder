@@ -57,7 +57,7 @@ const Login =()=> {
                     </div>
                     <div className={'email-form'} id={'email-form'}
                          style={{display:'none'}}>
-                        <form onSubmit={signInWithEmail(email, setMessage)}>
+                        <form onSubmit={()=>signInWithEmail(email, setMessage)}>
                             <input type={'email'} id={'email'}
                                    value={email}
                                    placeholder={'Email'}

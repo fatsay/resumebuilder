@@ -1,0 +1,53 @@
+.container-createResume {
+    width: 100%;
+    margin: 0;
+}
+.container-left {
+    float: left;
+    width: 50%;
+    padding: 20px;
+}
+.container-right {
+    float: right;
+    width: 50%;
+    height: 1000px;
+    background: gray;
+}
+/*Header component*/
+.header-resume {
+    text-align: center;
+    padding: 20px;
+}
+/*Personal Detail component*/
+.details-left{
+    width: 45%;
+    float: left;
+}
+.details-right {
+    width: 45%;
+    float: right;
+}
+.input-box {
+    padding: 3px 0;
+}
+/*Profile*/
+.pro-summary,.list-history {
+    float: left;
+    width: 100%;
+}
+/*Employment, Education*/
+.reusable-form {
+    float: left;
+    display: none;
+    height: 440px;
+    margin-top:10px;
+}
+
+.reusable-list {
+    margin: 10px 0;
+    padding: 15px;
+    height: 80px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+

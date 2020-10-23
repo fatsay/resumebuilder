@@ -4,7 +4,7 @@ import Login from './components/main/Login';
 import Home from './components/main/Home';
 import UserProvider, {UserContext} from "./providers/UserProvider";
 import Dashboard from "./components/main/Dashboard";
-import CreateResume from "./components/main/CreateResume";
+import CreateResume from "./components/resume/CreateResume";
 
 //Protected dashboard route
 const PrivateRoute=({children, ...rest})=>{
@@ -24,8 +24,8 @@ const App =()=> {
                     <Switch>
                         <Route exact path={'/home'}><Home/></Route>
                         <Route exact path={'/login'}><Login/></Route>
-                        <PrivateRoute path={'/dashboard'}><Dashboard/></PrivateRoute>
-                        <PrivateRoute path={'/createResume'}><CreateResume/></PrivateRoute>
+                        <Route path={'/dashboard'}><Dashboard/></Route>
+                        <Route path={'/createResume'}><CreateResume/></Route>
                         <Redirect from={'/'} to={'/home'}/>
                     </Switch>
                 </Router>
