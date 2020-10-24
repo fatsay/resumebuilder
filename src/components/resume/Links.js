@@ -47,7 +47,7 @@ const Links =(props)=>{
                 </div>
             })}
         </div>
-        <div className={'reusable-form'} id={'addNewLink'}>
+        <div className={'reusable-form'} id={'addNewLink'} style={{height:'120px'}}>
             <form onSubmit={saveLink}>
                 <div className={'details-left'}>
                     <div className={'input-box'}>
