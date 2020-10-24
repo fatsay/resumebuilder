@@ -4,8 +4,8 @@ import ReusableForm from "./ReusableForm";
 const Education =(props)=>{
     const [eduList,setEduList]=useState([])
     const [education,setEducation]=useState({
-        school:'', degree:'', dateStart:'',
-        dateEnd:'',eduCity:'',eduDescription:''
+        id:0,school:'', degree:'', eduDateStart:'',
+        eduDateEnd:'',eduCity:'',eduDescription:''
     })
 
     const handleChange = event => {
@@ -16,16 +16,17 @@ const Education =(props)=>{
     }
     const saveEducation =(e)=>{
         e.preventDefault()
+        let id=education.id+1
         let item={...education}
         setEduList(eduList.concat(item))
         //props.parentCallBack(empList)
         setEducation({
-            school:'', degree:'', dateStart:'',
-            dateEnd:'',eduCity:'',eduDescription:''
+            id:id,school:'', degree:'', eduDateStart:'',
+            eduDateEnd:'',eduCity:'',eduDescription:''
         })
     }
-    const deleteEducation =(dateStart)=>{
-        const newList=eduList.filter((i)=>i.dateStart!== dateStart)
+    const deleteEducation =(id)=>{
+        const newList=eduList.filter((i)=>i.id!== id)
         setEduList(newList)
     }
     const sendData=()=>{
@@ -39,14 +40,14 @@ const Education =(props)=>{
         <p style={{textAlign:'left'}}>Include your relevant educational achievements.</p>
         <div className={''}>
             {eduList.map((r)=>{
-                return <div className={'reusable-list'} key={r.dateStart}>
+                return <div className={'reusable-list'} key={r.id}>
                     <div style={{float:'left'}}>
                         <b>{r.degree}  ({r.school})</b>
-                        <p>{r.dateStart}-{r.dateEnd}</p>
+                        <p>{r.eduDateStart}-{r.eduDateEnd}</p>
                     </div>
                     <div style={{float:'right'}}>
                         <i className="fas fa-trash" style={{color:'red',cursor:'pointer'}}
-                           onClick={()=>deleteEducation(r.dateStart)}/>
+                           onClick={()=>deleteEducation(r.id)}/>
                     </div>
                 </div>
             })}
@@ -54,10 +55,10 @@ const Education =(props)=>{
         <ReusableForm handleSubmit={saveEducation} handleChange={handleChange}
                       classId={'addNewEdu'}
                       buttonText={'Save Education'}
-                      value={[education.school,education.dateStart,education.eduCity,
-                          education.degree,education.dateEnd,education.eduDescription]}
+                      value={[education.school,education.eduDateStart,education.eduCity,
+                          education.degree,education.eduDateEnd,education.eduDescription]}
                       labelTitle={['School','Start date','City','Degree','End date','Description']}
-                      inputId={['school','dateStart','eduCity','degree','dateEnd','eduDescription']}/>
+                      inputId={['school','eduDateStart','eduCity','degree','eduDateEnd','eduDescription']}/>
         <p style={{color:'blue', cursor:'pointer',float:'left', width:'100%'}}
            onClick={()=>document.getElementById('addNewEdu').style.display='block'}>
             <i className={'fas fa-plus'}
