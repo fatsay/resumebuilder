@@ -64,6 +64,5 @@ const Education =(props)=>{
             <i className={'fas fa-plus'}
                style={{color:'blue', paddingRight:'15px'}}/>Add education</p>
     </div>
-
 }
 export default Education

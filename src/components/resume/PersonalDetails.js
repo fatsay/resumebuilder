@@ -3,7 +3,7 @@ import '../../css/createResume.css'
 
 const PersonalDetails =(props)=>{
     const [personalData,setData]=useState({
-        nameFirst:'', nameLast:'', photo:'',
+        nameFirst:'', nameLast:'',photo:'',
         email:'', phone:'', country:'',
         city:'', address:'', postalCode:'',
         drivingLicense:'', nationality:'',
@@ -13,8 +13,9 @@ const PersonalDetails =(props)=>{
     const handleChange = event => {
         setData({
             ...personalData,
-            [event.target.id]: event.target.value
+            [event.target.id]: event.target.value,
         });
+
     };
     const sendData=()=>{
         props.parentCallBack(personalData)
@@ -108,12 +109,12 @@ const PersonalDetails =(props)=>{
         </div>
         <div className={'details-right'}>
             <div className={'input-box'}>
-                <label htmlFor={personalData.photo}>Photo</label>
-                <input type={'text'} id={'photo'}
-                       value={personalData.photo}
-                       placeholder={'Upload'}
-                       onChange={handleChange}
-                />
+                <label>Photo</label>
+                    <input type={'file'} style={{float:"right"}}
+                           onChange={(e)=>{setData({...personalData,
+                               photo: URL.createObjectURL(e.target.files[0])
+                           })}}
+                    />
             </div>
             <div className={'input-box'}>
                 <label htmlFor={personalData.nameLast}>Last Name</label>

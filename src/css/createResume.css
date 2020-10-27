@@ -10,9 +10,10 @@
 .container-right {
     float: right;
     width: 50%;
-    height: 1000px;
-    background: gray;
+    height: 100%;
+    background: darkmagenta;
 }
+
 /*Header component*/
 .header-resume {
     text-align: center;
@@ -31,7 +32,7 @@
     padding: 3px 0;
 }
 /*Profile*/
-.pro-summary,.list-history {
+.pro-summary,.list-history{
     float: left;
     width: 100%;
 }
@@ -39,10 +40,14 @@
 .reusable-form {
     float: left;
     display: none;
-    height: 440px;
+    height: 100%;
     margin-top:10px;
 }
-
+.reusable-form:after{
+    content: "";
+    clear: both;
+    display: table;
+}
 .reusable-list {
     margin: 10px 0;
     padding: 15px;
@@ -50,4 +55,5 @@
     border: 1px solid gray;
     border-radius: 5px;
 }
+
 

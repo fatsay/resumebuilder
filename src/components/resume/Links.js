@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import '../../css/createResume.css'
 
 const Links =(props)=>{
     const [linkList,setLinkList]=useState([])
@@ -31,7 +32,7 @@ const Links =(props)=>{
     })
     return <div className={'list-history'}>
         <h3>Websites and Social Links</h3>
-        <p style={{textAlign:'left'}}>You can add links websites you want hiring managers to see.
+        <p>You can add links websites you want hiring managers to see.
             (LInkedIn profile, or personal website)</p>
         <div className={''}>
             {linkList.map((r)=>{
@@ -47,7 +48,7 @@ const Links =(props)=>{
                 </div>
             })}
         </div>
-        <div className={'reusable-form'} id={'addNewLink'} style={{height:'120px'}}>
+        <div className={'reusable-form'} id={'addNewLink'}>
             <form onSubmit={saveLink}>
                 <div className={'details-left'}>
                     <div className={'input-box'}>
@@ -67,7 +68,7 @@ const Links =(props)=>{
                         />
                     </div>
                 </div>
-                <div className={'input-box'} style={{float:'left', width:'100%'}}>
+                <div className={'input-box'} style={{float:'left'}}>
                     <button type={'submit'} className={'btn-button'} style={{float:'left'}}
                             onClick={()=>document.getElementById('addNewLink').style.display='none'}
                     >Save Link</button>
