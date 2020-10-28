@@ -3,7 +3,6 @@ import ReusableForm from './ReusableForm';
 import '../../css/createResume.css'
 
 const EmploymentHistory =(props)=>{
-    //loop for emplist, display
     const [empList,setEmpList]=useState([])
     const [employment,setEmployment]=useState({
         id:'',titleJob:'', employer:'', empDateStart:'',

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import '../../css/createResume.css'
 
 const Profile =(props)=>{
-    const [summary,setSummary]=useState({profile :''})
+    const [summary,setSummary]=useState({profile:''})
     const handleChange = event => {
         setSummary({
             ...summary,

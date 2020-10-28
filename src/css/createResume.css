@@ -10,14 +10,17 @@
 .container-right {
     float: right;
     width: 50%;
+    padding: 20px;
     height: 100%;
-    background: darkmagenta;
+    background: lightgray;
+    font-size: 9px;
 }
-
+/*Container Left*/
 /*Header component*/
 .header-resume {
     text-align: center;
-    padding: 20px;
+    padding: 0;
+    text-transform: uppercase;
 }
 /*Personal Detail component*/
 .details-left{
@@ -55,5 +58,26 @@
     border: 1px solid gray;
     border-radius: 5px;
 }
-
+/*Container Right*/
+.display-left {
+    float: left;
+    width: 25%;
+    padding: 1px 5px 10px 0;
+    font-size: 9px;
+    text-transform: capitalize;
+}
+.display-right {
+    float: left;
+    width: 75%;
+    padding: 0 10px 10px 10px;
+    font-size: 9px;
+    border-left:1px dashed gray ;
+}
+.display-right i {
+    float: left;
+    padding: 1px 10px 0 0;
+}
+.display-right p, .display-right label  {
+    padding-left: 20px;
+}
 
