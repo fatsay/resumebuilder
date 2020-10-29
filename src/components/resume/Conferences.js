@@ -60,7 +60,7 @@ const Conferences =(props)=>{
         <p style={{color:'blue', cursor:'pointer',float:'left', width:'100%'}}
            onClick={()=>document.getElementById('addNewConf').style.display='block'}>
             <i className={'fas fa-plus'}
-               style={{color:'blue', paddingRight:'15px'}}/>Add Project</p>
+               style={{color:'blue', paddingRight:'15px'}}/>Add Conference</p>
     </div>
 }
 export default Conferences

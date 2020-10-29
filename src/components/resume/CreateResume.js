@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import Header from './Header';
 import '../../css/createResume.css'
 import PersonalDetails from "./PersonalDetails";
@@ -12,6 +12,9 @@ import Hobbies from "./Hobbies";
 import Projects from "./Projects";
 import Conferences from "./Conferences";
 import References from "./References";
+import html2canvas from "html2canvas";
+import jsPDF from 'jspdf'
+
 
 const CreateResume =()=>{
     const [progress,setProgress]=useState(0)
@@ -103,8 +106,34 @@ const CreateResume =()=>{
         setReferences(data)
     }
     const convertToPdf=()=>{
-        console.log('converted')
-        //convert html to svg
+        /*
+        html2canvas(document.querySelector('.container-right'),{useCORS:true, scale:2}).then(canvas=>{
+            const imgData = canvas.toDataURL('image/png')
+            const pdf = new jsPDF('p','mm','a4')
+            pdf.addImage(imgData,'PNG',0,0,211,298)
+            pdf.save('download.pdf')
+        })*/
+
+        window.scrollTo(0,0)
+        const divToPrint = document.querySelector('#capture')
+        html2canvas(divToPrint,{useCORS:true, scale:2}).then(canvas=>{
+            const imgData = canvas.toDataURL('image/png')
+            const imgWidth = 210
+            const pageHeight = 290
+            const imgHeight = (canvas.height * imgWidth)/canvas.width
+            let heightLeft = imgHeight
+            const doc = new jsPDF('p','mm','a4')
+            let position = 0
+            doc.addImage(imgData,'PNG',0,0,imgWidth,imgHeight)
+            heightLeft -=pageHeight
+            while (heightLeft>=0){
+                position = heightLeft - imgHeight;
+                doc.addPage()
+                doc.addImage(imgData,'PNG',0,position,imgWidth,imgHeight+25)
+                heightLeft -=pageHeight
+            }
+            doc.save('download.pdf')
+        })
     }
     return (
         <div className={'container-createResume'}>
