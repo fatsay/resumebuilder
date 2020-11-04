@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import Header from './Header';
 import '../../css/createResume.css'
 import PersonalDetails from "./PersonalDetails";
@@ -15,8 +15,6 @@ import References from "./References";
 import html2canvas from "html2canvas";
 import jsPDF from 'jspdf'
 import * as axios from "axios";
-import {UserContext} from "../../providers/UserProvider";
-
 
 const CreateResume =()=>{
     const [progress,setProgress]=useState(0)

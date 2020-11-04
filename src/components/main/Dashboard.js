@@ -1,13 +1,11 @@
-import React, {useContext, useEffect} from 'react';
+import React from 'react';
 import NavBar from '../sub/NavBar';
 import { NavLink,useRouteMatch,Switch,Route,useHistory} from 'react-router-dom';
 import '../../css/dashboard.css'
 import '../../css/navbar.css'
 import Resume from './Resume';
-import {UserContext} from "../../providers/UserProvider";
 
 const Dashboard =()=> {
-    const user = useContext(UserContext)
     let { path, url } = useRouteMatch()
     let history = useHistory()
 

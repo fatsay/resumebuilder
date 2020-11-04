@@ -1,6 +1,5 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import '../../css/createResume.css'
-import {UserContext} from "../../providers/UserProvider";
 
 const PersonalDetails =(props)=>{
 
