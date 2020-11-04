@@ -8,7 +8,8 @@
     padding: 20px;
 }
 .container-right {
-    float: right;
+    margin-left: 100px;
+    float: left;
     width: 650px;
     height: auto;
     padding: 16px;

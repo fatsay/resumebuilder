@@ -1,19 +1,17 @@
-import React, {useEffect} from 'react';
+import React, {useContext, useEffect} from 'react';
 import NavBar from '../sub/NavBar';
 import { NavLink,useRouteMatch,Switch,Route,useHistory} from 'react-router-dom';
 import '../../css/dashboard.css'
 import '../../css/navbar.css'
 import Resume from './Resume';
+import {UserContext} from "../../providers/UserProvider";
 
 const Dashboard =()=> {
-    //const user = useContext(UserContext)
+    const user = useContext(UserContext)
     let { path, url } = useRouteMatch()
     let history = useHistory()
 
-    useEffect(()=>{
-        //api call server get user's docs.
-    })
-    //Do this in App component wit protected page
+    //Do this in App component with protected page
         return (
             <div className={'container'}>
                 <NavBar/>

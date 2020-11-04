@@ -1,5 +1,7 @@
 import React, {useState, useEffect,  createContext} from "react";
 import { auth } from "../services/Firebase"
+import * as axios from "axios";
+
 export const UserContext = createContext({user: null})
 
 export default (props) => {
@@ -7,12 +9,24 @@ export default (props) => {
     useEffect(() => {
         auth.onAuthStateChanged(async (user) => {
             if(user){
-                const { displayName, email }  = user;
-                setUser({
-                    displayName,
-                    email
+                user.getIdToken(true).then(token=>
+                axios.get('http://localhost:3000/users',
+                    {
+                        headers: {
+                            'Content-Type': 'application/json; charset=utf-8',
+                            'Authorization': 'Bearer ' + token
+                        }
+                    }).then(res=>{
+                    const { displayName, email,userData=res.data.userData}  = user;
+                    setUser({
+                        displayName,
+                        email,
+                        userData
+                    })
+                }).catch(err=>{
+                    console.log(err)
                 })
-            }
+                )}
         })
     },[])
 

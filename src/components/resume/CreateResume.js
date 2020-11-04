@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Header from './Header';
 import '../../css/createResume.css'
 import PersonalDetails from "./PersonalDetails";
@@ -14,6 +14,8 @@ import Conferences from "./Conferences";
 import References from "./References";
 import html2canvas from "html2canvas";
 import jsPDF from 'jspdf'
+import * as axios from "axios";
+import {UserContext} from "../../providers/UserProvider";
 
 
 const CreateResume =()=>{
@@ -30,6 +32,7 @@ const CreateResume =()=>{
     const [conferences,setConferences]=useState([])
     const [references,setReferences]=useState([])
     const skillLevel=['Novice','Beginner','Skillful','Experienced','Expert']
+    const [showLoader, setLoader] = useState(false);
 
     let count=0
     const getPersonalData =(data)=>{
@@ -105,35 +108,60 @@ const CreateResume =()=>{
     const getReferences =(data)=>{
         setReferences(data)
     }
-    const convertToPdf=()=>{
-        /*
-        html2canvas(document.querySelector('.container-right'),{useCORS:true, scale:2}).then(canvas=>{
-            const imgData = canvas.toDataURL('image/png')
-            const pdf = new jsPDF('p','mm','a4')
-            pdf.addImage(imgData,'PNG',0,0,211,298)
-            pdf.save('download.pdf')
-        })*/
-
-        window.scrollTo(0,0)
-        const divToPrint = document.querySelector('#capture')
-        html2canvas(divToPrint,{useCORS:true, scale:2}).then(canvas=>{
-            const imgData = canvas.toDataURL('image/png')
-            const imgWidth = 210
-            const pageHeight = 290
-            const imgHeight = (canvas.height * imgWidth)/canvas.width
-            let heightLeft = imgHeight
-            const doc = new jsPDF('p','mm','a4')
-            let position = 0
-            doc.addImage(imgData,'PNG',0,0,imgWidth,imgHeight)
-            heightLeft -=pageHeight
-            while (heightLeft>=0){
-                position = heightLeft - imgHeight;
-                doc.addPage()
-                doc.addImage(imgData,'PNG',0,position,imgWidth,imgHeight+25)
-                heightLeft -=pageHeight
-            }
-            doc.save('download.pdf')
-        })
+    const convertToPdf=()=> {
+        window.scrollTo(0, 0)
+        setTimeout(() => {
+            setTimeout(() => {
+                setLoader(true);
+            }, 100);
+            const divToPrint = document.querySelector('#capture')
+            html2canvas(divToPrint, {useCORS: true, scale: 2}).then(canvas => {
+                const imgData = canvas.toDataURL('image/png')
+                const imgWidth = 210
+                const pageHeight = 290
+                const imgHeight = (canvas.height * imgWidth) / canvas.width
+                let heightLeft = imgHeight
+                const doc = new jsPDF('p', 'mm', 'a4')
+                let position = 0
+                doc.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight)
+                heightLeft -= pageHeight
+                while (heightLeft >= 0) {
+                    position = heightLeft - imgHeight;
+                    doc.addPage()
+                    doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight + 25)
+                    heightLeft -= pageHeight
+                }
+                doc.save('download.pdf')
+                setLoader(false)
+            }).then(() => {
+                const userData = {
+                    personalData: personalData,
+                    profile: profile,
+                    employment: employment,
+                    education: education,
+                    links: links,
+                    skills: skills,
+                    lang: lang,
+                    hobbies: hobbies,
+                    projects: projects,
+                    conferences: conferences,
+                    references: references
+                }
+                axios.post('http://localhost:3000/users?',
+                    JSON.stringify(userData),
+                    {
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Access-Control-Allow-Origin': '*',
+                            'Access-Control-Allow-Methods': 'POST'
+                        }
+                    }).then(res => {
+                    console.log(res.message)
+                }).catch(err => {
+                    console.log(err)
+                })
+            })
+        }, 1000)
     }
     return (
         <div className={'container-createResume'}>
@@ -302,7 +330,7 @@ const CreateResume =()=>{
                     }
                 </div>
             </div>
-            <button className={'btn-button'} style={{float:'right'}}
+            <button className={'btn-button'} style={{float:'right',width:'200px',marginRight:'90px',marginTop:'20px'}}
                     onClick={convertToPdf}>Convert</button>
         </div>
     )

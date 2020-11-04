@@ -1,7 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import '../../css/createResume.css'
+import {UserContext} from "../../providers/UserProvider";
 
 const PersonalDetails =(props)=>{
+
     const [personalData,setData]=useState({
         nameFirst:'', nameLast:'',photo:'',
         email:'', phone:'', country:'',
@@ -10,6 +12,7 @@ const PersonalDetails =(props)=>{
         placeOfBirth:'', dateOfBirth:'', jobTitle:''
     })
     const [addDetail,setDetail]=useState(false)
+
     const handleChange = event => {
         setData({
             ...personalData,
@@ -20,6 +23,7 @@ const PersonalDetails =(props)=>{
     const sendData=()=>{
         props.parentCallBack(personalData)
     }
+
     useEffect(()=>{
         sendData();
     })

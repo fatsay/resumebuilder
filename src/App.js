@@ -24,8 +24,8 @@ const App =()=> {
                     <Switch>
                         <Route exact path={'/home'}><Home/></Route>
                         <Route exact path={'/login'}><Login/></Route>
-                        <Route path={'/dashboard'}><Dashboard/></Route>
-                        <Route path={'/createResume'}><CreateResume/></Route>
+                        <PrivateRoute path={'/dashboard'}><Dashboard/></PrivateRoute>
+                        <PrivateRoute path={'/createResume'}><CreateResume/></PrivateRoute>
                         <Redirect from={'/'} to={'/home'}/>
                     </Switch>
                 </Router>
